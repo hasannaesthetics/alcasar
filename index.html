@@ -5,291 +5,583 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Alcasar Exchange - Console & Tech Trade-In</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet"/>
+
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
-                        "on-surface": "#e2e2e8",
-                        "outline": "#869584",
-                        "outline-variant": "#3c4a3d",
-                        "on-primary-fixed": "#002109",
-                        "secondary-fixed-dim": "#c4c6d0",
-                        "on-primary-container": "#0f1115", 
-                        "surface-dim": "#111317",
-                        "inverse-primary": "#006d2f",
-                        "on-primary-fixed-variant": "#005322",
-                        "on-tertiary-container": "#474949",
-                        "background": "#0f1115", 
-                        "on-background": "#e2e2e8",
-                        "primary-fixed-dim": "#3de273",
-                        "surface": "#171a21", 
-                        "on-secondary": "#2d3038",
-                        "surface-bright": "#37393e",
-                        "surface-container": "#1e2024",
-                        "on-error": "#690005",
-                        "on-tertiary-fixed-variant": "#454747",
-                        "on-primary": "#0f1115", 
-                        "error": "#ffb4ab",
-                        "secondary": "#c4c6d0",
-                        "primary-container": "#25d366", 
-                        "secondary-fixed": "#e0e2ec",
-                        "on-error-container": "#ffdad6",
-                        "on-secondary-fixed": "#191c23",
-                        "on-tertiary": "#2f3131",
-                        "surface-container-highest": "#333539",
-                        "on-tertiary-fixed": "#1a1c1c",
-                        "surface-tint": "#3de273",
-                        "on-surface-variant": "#bbcbb9",
-                        "surface-variant": "#2a2e37", 
-                        "primary": "#25d366", 
-                        "surface-container-high": "#282a2e",
-                        "tertiary-container": "#b7b8b8",
-                        "tertiary-fixed-dim": "#c6c6c7",
-                        "primary-fixed": "#66ff8e",
-                        "secondary-container": "#44474f",
-                        "surface-container-lowest": "#0c0e12",
-                        "surface-container-low": "#1a1c20",
-                        "inverse-on-surface": "#2f3035",
-                        "tertiary-fixed": "#e2e2e2",
-                        "on-secondary-container": "#b3b5be",
-                        "error-container": "#93000a",
-                        "inverse-surface": "#e2e2e8",
-                        "on-secondary-fixed-variant": "#44474f",
-                        "tertiary": "#d3d4d4",
-                        "border-explicit": "#2a2e37"
+                    colors: {
+                        "bg":          "#0a0c0f",
+                        "surface":     "#12151a",
+                        "surface-2":   "#1a1d24",
+                        "border":      "#1f2330",
+                        "border-hi":   "#2a2f3e",
+                        "text":        "#e8eaf0",
+                        "text-2":      "#8b90a0",
+                        "text-3":      "#555a6a",
+                        "accent":      "#00e676",
+                        "accent-dim":  "#00b35a",
+                        "accent-bg":   "#001f0e",
+                        "accent-text": "#00e676",
+                        "warn":        "#f5a623",
+                        "danger":      "#ef4444",
+                        "iphone":      "#3b82f6",
                     },
-                    "borderRadius": {
-                        "DEFAULT": "0px", 
-                        "lg": "0px",
-                        "xl": "0px",
-                        "full": "0px"
+                    fontFamily: {
+                        sans:  ["DM Sans", "sans-serif"],
+                        mono:  ["Space Mono", "monospace"],
                     },
-                    "spacing": {
-                        "margin-desktop": "48px",
-                        "lg": "40px",
-                        "xl": "64px",
-                        "xs": "4px",
-                        "gutter": "24px",
-                        "margin-mobile": "16px",
-                        "sm": "12px",
-                        "md": "24px",
-                        "base": "8px"
-                    },
-                    "fontFamily": {
-                        "headline-sm": ["Inter"],
-                        "headline-xl": ["Inter"],
-                        "headline-md": ["Inter"],
-                        "headline-lg": ["Inter"],
-                        "label-bold": ["Inter"],
-                        "headline-xl-mobile": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "body-md": ["Inter"],
-                        "body-sm": ["Inter"],
-                        "label-md": ["Inter"]
-                    },
-                    "fontSize": {
-                        "headline-sm": ["20px", { "lineHeight": "1.4", "fontWeight": "600" }],
-                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
-                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
-                        "label-bold": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700" }],
-                        "headline-xl-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
-                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
-                        "label-md": ["12px", { "lineHeight": "1", "fontWeight": "500" }]
-                    }
                 }
             }
         }
     </script>
+
     <style>
-        .hover-glow:hover {
-            box-shadow: 0px 0px 12px rgba(37, 211, 102, 0.4);
-            transition: box-shadow 0.2s ease-in-out;
+        * { box-sizing: border-box; }
+        body { font-family: "DM Sans", sans-serif; background: #0a0c0f; color: #e8eaf0; min-height: 100dvh; }
+
+        /* Accent glow on CTAs */
+        .btn-primary {
+            background: #00e676;
+            color: #001f0e;
+            font-family: "Space Mono", monospace;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            padding: 14px 24px;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: background 0.15s, transform 0.1s;
+            text-decoration: none;
+            white-space: nowrap;
         }
-        .active-glow:active {
-            box-shadow: 0px 0px 16px rgba(37, 211, 102, 0.6);
-            transform: scale(0.98);
+        .btn-primary:active { transform: scale(0.97); background: #00c962; }
+        .btn-primary:hover  { background: #14f080; }
+
+        .btn-ghost {
+            background: transparent;
+            color: #e8eaf0;
+            font-family: "Space Mono", monospace;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            padding: 12px 20px;
+            border: 1px solid #2a2f3e;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: border-color 0.15s, background 0.15s;
+            text-decoration: none;
+            width: 100%;
+            justify-content: center;
         }
-        body {
-            min-height: max(884px, 100dvh);
+        .btn-ghost:hover  { border-color: #00e676; color: #00e676; }
+        .btn-ghost:active { transform: scale(0.97); }
+
+        /* Chip/badge */
+        .chip {
+            font-family: "Space Mono", monospace;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            padding: 3px 8px;
+            border: 1px solid #1f2330;
+            color: #555a6a;
+            background: #12151a;
         }
+
+        /* Price tag */
+        .price {
+            font-family: "Space Mono", monospace;
+            font-size: 22px;
+            font-weight: 700;
+            color: #00e676;
+            letter-spacing: -0.02em;
+        }
+
+        /* Product card */
+        .card {
+            background: #12151a;
+            border: 1px solid #1f2330;
+            padding: 20px;
+            transition: border-color 0.15s;
+        }
+        .card:hover { border-color: #2a2f3e; }
+
+        /* Section title */
+        .section-label {
+            font-family: "Space Mono", monospace;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            color: #555a6a;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        /* Stat badge */
+        .stat-block {
+            border: 1px solid #1f2330;
+            background: #12151a;
+            padding: 16px 20px;
+            text-align: center;
+        }
+
+        /* Accordion */
+        details { border-bottom: 1px solid #1f2330; }
+        details:first-child { border-top: 1px solid #1f2330; }
+        summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 16px 0;
+            font-size: 15px;
+            font-weight: 500;
+            color: #e8eaf0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary .icon { color: #555a6a; font-size: 18px; transition: transform 0.2s; }
+        details[open] summary .icon { transform: rotate(45deg); color: #00e676; }
+        details p { color: #8b90a0; font-size: 14px; line-height: 1.65; padding-bottom: 16px; margin: 0; }
+
+        /* Floating WhatsApp FAB */
+        .fab {
+            position: fixed;
+            bottom: 24px;
+            right: 20px;
+            z-index: 100;
+            background: #00e676;
+            color: #001f0e;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 24px rgba(0,230,118,0.35);
+            text-decoration: none;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .fab:hover  { transform: scale(1.08); box-shadow: 0 6px 32px rgba(0,230,118,0.5); }
+        .fab:active { transform: scale(0.95); }
+
+        /* Divider line */
+        hr { border: none; border-top: 1px solid #1f2330; margin: 0; }
+
+        /* Coming soon label */
+        .soon { 
+            font-family: "Space Mono", monospace; 
+            font-size: 10px; 
+            color: #555a6a; 
+            background: #12151a; 
+            border: 1px dashed #2a2f3e; 
+            padding: 2px 8px; 
+            letter-spacing: 0.08em;
+        }
+
+        /* iPhone accent */
+        .iphone-price { color: #3b82f6; }
+
+        /* Nav scroll shadow */
+        header { transition: box-shadow 0.2s; }
+        header.scrolled { box-shadow: 0 1px 0 #1f2330, 0 4px 20px rgba(0,0,0,0.4); }
+
+        /* Collection row */
+        .coll-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid #1f2330;
+            font-size: 14px;
+        }
+        .coll-row:last-child { border-bottom: none; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0a0c0f; }
+        ::-webkit-scrollbar-thumb { background: #2a2f3e; }
+
+        /* Responsive max-width */
+        .page-shell { max-width: 640px; margin: 0 auto; }
     </style>
 </head>
-<body class="bg-background text-on-background antialiased selection:bg-primary selection:text-on-primary">
+<body>
 
-    <!-- TopAppBar Component -->
-    <header class="bg-background dark:bg-background fixed top-0 left-0 right-0 z-50 border-b border-surface-variant w-full mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-16">
-        <div class="flex items-center gap-xs">
-            <span class="material-symbols-outlined text-primary dark:text-primary">devices</span>
-            <span class="text-headline-md font-headline-md font-bold tracking-tight text-on-background dark:text-on-background">Alcasar Exchange</span>
+<!-- Floating WhatsApp FAB -->
+<a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20get%20a%20quote%20for%20my%20device." class="fab" aria-label="Chat on WhatsApp">
+    <span class="material-symbols-outlined" style="font-size:26px;">chat</span>
+</a>
+
+<!-- Header -->
+<header id="header" class="bg-bg fixed top-0 left-0 right-0 z-50 h-14 flex items-center px-5 border-b border-border" style="border-color:#1f2330;">
+    <div class="page-shell w-full flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent" style="font-size:20px;">devices</span>
+            <span style="font-family:'Space Mono',monospace;font-weight:700;font-size:14px;letter-spacing:0.02em;color:#e8eaf0;">ALCASAR</span>
+            <span style="font-family:'DM Sans',sans-serif;font-size:14px;color:#555a6a;margin-left:2px;">Exchange</span>
         </div>
-        <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I'm%20looking%20to%20get%20a%20quote%20to%20sell%20my%20device." class="text-primary font-bold hover:text-primary transition-colors duration-200 active:scale-95 transition-transform text-body-sm font-body-sm flex items-center gap-xs">
-            <span>Sell Now</span>
-            <span class="material-symbols-outlined text-body-sm">arrow_forward</span>
+        <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20sell%20my%20device." class="btn-primary" style="padding:8px 14px;font-size:11px;">
+            Sell Now <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
         </a>
-    </header>
+    </div>
+</header>
 
-    <!-- Main Content Canvas -->
-    <main class="pt-16 pb-xl max-w-[1280px] mx-auto">
-        
-        <!-- Hero Section -->
-        <section class="px-margin-mobile py-xl flex flex-col items-center text-center gap-md border-b border-surface-variant">
-            <h1 class="font-headline-xl-mobile text-headline-xl-mobile md:font-headline-xl md:text-headline-xl max-w-2xl text-on-background">Turn Your Unused Tech Into Instant Cash.</h1>
-            <p class="font-body-lg text-body-lg text-on-surface max-w-xl">Fast quotes and payout via PayNow or Cash.</p>
-            <a class="bg-primary-container text-on-primary-container font-headline-sm text-headline-sm px-lg py-md mt-sm flex items-center gap-base hover-glow active-glow transition-all" href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I'm%20looking%20to%20get%20a%20fast%20quote%20for%20my%20device.">
-                <span class="material-symbols-outlined">chat</span>
-                Get a Quote via WhatsApp
-            </a>
-        </section>
+<main class="pt-14 pb-28" style="max-width:640px;margin:0 auto;">
 
-        <!-- 3-Step Process -->
-        <section class="px-margin-mobile py-lg border-b border-surface-variant">
-            <h2 class="font-headline-md text-headline-md mb-md text-center">How It Works</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
-                <div class="bg-surface border border-surface-variant p-md flex flex-col items-start gap-base">
-                    <span class="material-symbols-outlined text-primary text-headline-lg font-headline-lg">info</span>
-                    <h3 class="font-headline-sm text-headline-sm">Send Details</h3>
-                    <p class="font-body-sm text-body-sm text-on-surface">Provide device model, specs, condition, and accessories.</p>
-                </div>
-                <div class="bg-surface border border-surface-variant p-md flex flex-col items-start gap-base">
-                    <span class="material-symbols-outlined text-primary text-headline-lg font-headline-lg">payments</span>
-                    <h3 class="font-headline-sm text-headline-sm">Get Quote</h3>
-                </div>
-                <div class="bg-surface border border-surface-variant p-md flex flex-col items-start gap-base">
-                    <span class="material-symbols-outlined text-primary text-headline-lg font-headline-lg">handshake</span>
-                    <h3 class="font-headline-sm text-headline-sm">Meet &amp; Get Paid</h3>
-                    <p class="font-body-sm text-body-sm text-on-surface">Meet up and receive instant payment via Cash or PayNow.</p>
-                </div>
+    <!-- Hero -->
+    <section class="px-5 py-12 border-b" style="border-color:#1f2330;">
+        <div class="section-label">Singapore · Fast Payouts</div>
+        <h1 style="font-family:'Space Mono',monospace;font-size:clamp(26px,7vw,38px);font-weight:700;line-height:1.15;letter-spacing:-0.02em;margin:8px 0 16px;color:#e8eaf0;">
+            Turn unused tech<br>into <span style="color:#00e676;">instant cash.</span>
+        </h1>
+        <p style="color:#8b90a0;font-size:15px;line-height:1.6;max-width:360px;margin-bottom:28px;">
+            Consoles, iPhones, laptops — fast quotes and same-day payout via PayNow or cash.
+        </p>
+        <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20get%20a%20fast%20quote%20for%20my%20device." class="btn-primary" style="width:100%;justify-content:center;padding:16px 24px;font-size:14px;">
+            <span class="material-symbols-outlined" style="font-size:18px;">chat</span>
+            Get a Quote on WhatsApp
+        </a>
+
+        <!-- Trust stats -->
+        <div class="grid grid-cols-3 gap-3 mt-8">
+            <div class="stat-block">
+                <div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:#00e676;">80+</div>
+                <div style="font-size:11px;color:#555a6a;margin-top:2px;">Devices Bought</div>
             </div>
-        </section>
-
-        <!-- Gaming Consoles Buyback Grid -->
-        <section id="console-rates" class="px-margin-mobile py-lg border-b border-surface-variant">
-            <h2 class="font-headline-md text-headline-md mb-md">Gaming Console Buyback Rates</h2>
-            <div class="flex flex-col gap-md">
-                
-                <!-- PS5 Card -->
-                <div class="bg-surface border border-surface-variant p-md flex flex-col md:flex-row gap-md items-start md:items-center">
-                    <div class="flex-1 flex flex-col gap-sm">
-                        <div class="flex flex-wrap gap-xs">
-                            <span class="bg-background text-on-background px-sm py-xs font-label-bold text-label-bold uppercase border border-surface-variant">PS5</span>
-                            <span class="bg-background text-on-background px-sm py-xs font-label-bold text-label-bold uppercase border border-surface-variant">Disc / Digital</span>
-                        </div>
-                        <h3 class="font-headline-md text-headline-md">PlayStation 5</h3>
-                        <p class="font-body-sm text-body-sm text-on-surface">Highest demand. Premium rates for sealed units.</p>
-                    </div>
-                    <div class="flex flex-col md:items-end gap-sm w-full md:w-auto">
-                        <span class="text-primary font-headline-lg text-headline-lg">$280 - $500</span>
-                        <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I'm%20looking%20to%20sell%20my%20PS5.%20Here%20are%20the%20details:" class="w-full md:w-auto border border-on-background text-on-background px-md py-sm font-headline-sm text-headline-sm hover:bg-on-background hover:text-background transition-colors flex justify-center items-center gap-xs">
-                            Sell My PS5 <span class="material-symbols-outlined text-body-md">arrow_forward</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Nintendo Switch Card -->
-                <div class="bg-surface border border-surface-variant p-md flex flex-col md:flex-row gap-md items-start md:items-center">
-                    <div class="flex-1 flex flex-col gap-sm">
-                        <div class="flex flex-wrap gap-xs">
-                            <span class="bg-background text-on-background px-sm py-xs font-label-bold text-label-bold uppercase border border-surface-variant">Switch</span>
-                            <span class="bg-background text-on-background px-sm py-xs font-label-bold text-label-bold uppercase border border-surface-variant">OLED / V2 / Lite</span>
-                        </div>
-                        <h3 class="font-headline-md text-headline-md">Nintendo Switch</h3>
-                        <p class="font-body-sm text-body-sm text-on-surface">Fast turnaround. Bonus for complete sets.</p>
-                    </div>
-                    <div class="flex flex-col md:items-end gap-sm w-full md:w-auto">
-                        <span class="text-primary font-headline-lg text-headline-lg">$80 - $250</span>
-                        <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I'm%20looking%20to%20sell%20my%20Nintendo%20Switch.%20Here%20are%20the%20details:" class="w-full md:w-auto border border-on-background text-on-background px-md py-sm font-headline-sm text-headline-sm hover:bg-on-background hover:text-background transition-colors flex justify-center items-center gap-xs">
-                            Sell My Switch <span class="material-symbols-outlined text-body-md">arrow_forward</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PS4 Card -->
-                <div class="bg-surface border border-surface-variant p-md flex flex-col md:flex-row gap-md items-start md:items-center">
-                    <div class="flex-1 flex flex-col gap-sm">
-                        <div class="flex flex-wrap gap-xs">
-                            <span class="bg-background text-on-background px-sm py-xs font-label-bold text-label-bold uppercase border border-surface-variant">PS4</span>
-                            <span class="bg-background text-on-background px-sm py-xs font-label-bold text-label-bold uppercase border border-surface-variant">Pro / Slim / Fat</span>
-                        </div>
-                        <h3 class="font-headline-md text-headline-md">PlayStation 4</h3>
-                        <p class="font-body-sm text-body-sm text-on-surface">Steady demand.</p>
-                    </div>
-                    <div class="flex flex-col md:items-end gap-sm w-full md:w-auto">
-                        <span class="text-primary font-headline-lg text-headline-lg">$50 - $110</span>
-                        <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I'm%20looking%20to%20sell%20my%20PS4.%20Here%20are%20the%20details:" class="w-full md:w-auto border border-on-background text-on-background px-md py-sm font-headline-sm text-headline-sm hover:bg-on-background hover:text-background transition-colors flex justify-center items-center gap-xs">
-                            Sell My PS4 <span class="material-symbols-outlined text-body-md">arrow_forward</span>
-                        </a>
-                    </div>
-                </div>
-
+            <div class="stat-block">
+                <div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:#e8eaf0;">Same</div>
+                <div style="font-size:11px;color:#555a6a;margin-top:2px;">Day Payout</div>
             </div>
-        </section>
-
-        <!-- Laptops & Tech Buyback Grid -->
-        <section id="laptop-rates" class="px-margin-mobile py-lg border-b border-surface-variant">
-            <h2 class="font-headline-md text-headline-md mb-md">Laptops &amp; Productivity Buyback Rates</h2>
-            <div class="flex flex-col gap-md">
-
-                <!-- ThinkPad Card -->
-                <div class="bg-surface border border-surface-variant p-md flex flex-col md:flex-row gap-md items-start md:items-center">
-                    <div class="flex-1 flex flex-col gap-sm">
-                        <div class="flex flex-wrap gap-xs">
-                            <span class="bg-background text-on-background px-sm py-xs font-label-bold text-label-bold uppercase border border-surface-variant">Lenovo</span>
-                            <span class="bg-background text-on-background px-sm py-xs font-label-bold text-label-bold uppercase border border-surface-variant">ThinkPad X1 / T-Series</span>
-                        </div>
-                        <h3 class="font-headline-md text-headline-md">Lenovo ThinkPad</h3>
-                        <p class="font-body-sm text-body-sm text-on-surface">Buying modern professional business setups. Quick valuation based on CPU generation.</p>
-                    </div>
-                    <div class="flex flex-col md:items-end gap-sm w-full md:w-auto">
-                        <span class="text-primary font-headline-lg text-headline-lg">$150 - $600</span>
-                        <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I'm%20looking%20to%20sell%20my%20ThinkPad.%20Here%20are%20the%20specs%20and%20condition:" class="w-full md:w-auto border border-on-background text-on-background px-md py-sm font-headline-sm text-headline-sm hover:bg-on-background hover:text-background transition-colors flex justify-center items-center gap-xs">
-                            Sell My ThinkPad <span class="material-symbols-outlined text-body-md">arrow_forward</span>
-                        </a>
-                    </div>
-                </div>
-
+            <div class="stat-block">
+                <div style="font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:#e8eaf0;">SG</div>
+                <div style="font-size:11px;color:#555a6a;margin-top:2px;">Based & Local</div>
             </div>
-        </section>
-
-        <!-- Logistics -->
-        <section class="px-margin-mobile py-lg">
-            <h2 class="font-headline-md text-headline-md mb-md">Collection Options</h2>
-            <ul class="flex flex-col gap-sm border border-surface-variant bg-surface p-md">
-                <li class="flex justify-between items-center py-sm border-b border-surface-variant last:border-0">
-                    <span class="font-body-md text-body-md text-on-surface">Pasir Ris MRT / 510159</span>
-                    <span class="bg-primary-container text-on-primary-container px-sm py-xs font-label-bold text-label-bold">FREE Collection</span>
-                </li>
-                <li class="flex justify-between items-center py-sm border-b border-surface-variant last:border-0">
-                    <span class="font-body-md text-body-md text-on-surface">Central / Town Area</span>
-                    <span class="bg-surface-variant text-[#eab308] border border-[#eab308] px-sm py-xs font-label-bold text-label-bold">-$5.00</span>
-                </li>
-                <li class="flex justify-between items-center py-sm border-b border-surface-variant last:border-0">
-                    <span class="font-body-md text-body-md text-on-surface">Doorstep Collection</span>
-                    <span class="bg-surface-variant text-[#ef4444] border border-[#ef4444] px-sm py-xs font-label-bold text-label-bold">-$10 to -$20</span>
-                </li>
-            </ul>
-        </section>
-    </main>
-
-    <!-- Footer Component -->
-    <footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full border-t border-outline-variant max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-xl flex flex-col md:flex-row justify-between items-center gap-md">
-        <div class="flex flex-col items-center md:items-start gap-xs">
-            <span class="font-headline-sm text-headline-sm font-bold text-on-surface">Alcasar Exchange</span>
-            <span class="font-body-sm text-body-sm text-on-secondary-container">&copy; 2026 Alcasar Exchange. Fast, reliable trading based in Singapore.</span>
         </div>
-        <nav class="flex gap-md">
-            <a class="font-body-sm text-body-sm text-on-secondary-container hover:text-on-background transition-colors" href="#">Terms</a>
-            <a class="font-body-sm text-body-sm text-on-secondary-container hover:text-on-background transition-colors" href="#">Privacy</a>
-            <a class="font-body-sm text-body-sm text-on-secondary-container hover:text-on-background transition-colors" href="#">Support</a>
-            <a class="font-body-sm text-body-sm text-on-secondary-container hover:text-on-background transition-colors" href="#">Contact</a>
+    </section>
+
+    <!-- How It Works -->
+    <section class="px-5 py-10 border-b" style="border-color:#1f2330;">
+        <div class="section-label">Process</div>
+        <h2 style="font-size:20px;font-weight:600;margin:4px 0 20px;">How it works</h2>
+        <div class="flex flex-col gap-0">
+
+            <div class="flex gap-4 pb-6 relative">
+                <div class="flex flex-col items-center">
+                    <div style="width:32px;height:32px;border:1px solid #00e676;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                        <span style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#00e676;">01</span>
+                    </div>
+                    <div style="width:1px;background:#1f2330;flex:1;margin-top:6px;"></div>
+                </div>
+                <div class="pt-1">
+                    <div style="font-weight:600;font-size:15px;margin-bottom:4px;">Send Your Details</div>
+                    <div style="font-size:13px;color:#8b90a0;line-height:1.55;">WhatsApp us the model, condition, storage, and what accessories you have.</div>
+                </div>
+            </div>
+
+            <div class="flex gap-4 pb-6 relative">
+                <div class="flex flex-col items-center">
+                    <div style="width:32px;height:32px;border:1px solid #2a2f3e;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                        <span style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#555a6a;">02</span>
+                    </div>
+                    <div style="width:1px;background:#1f2330;flex:1;margin-top:6px;"></div>
+                </div>
+                <div class="pt-1">
+                    <div style="font-weight:600;font-size:15px;margin-bottom:4px;">Get a Quote</div>
+                    <div style="font-size:13px;color:#8b90a0;line-height:1.55;">We'll reply with a price, usually within the hour. No obligation to proceed.</div>
+                </div>
+            </div>
+
+            <div class="flex gap-4">
+                <div class="flex flex-col items-center">
+                    <div style="width:32px;height:32px;border:1px solid #2a2f3e;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                        <span style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#555a6a;">03</span>
+                    </div>
+                </div>
+                <div class="pt-1">
+                    <div style="font-weight:600;font-size:15px;margin-bottom:4px;">Meet &amp; Get Paid</div>
+                    <div style="font-size:13px;color:#8b90a0;line-height:1.55;">Meet at a convenient spot. Receive instant payment via Cash or PayNow on the spot.</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Gaming Consoles -->
+    <section id="console-rates" class="px-5 py-10 border-b" style="border-color:#1f2330;">
+        <div class="section-label">Buyback rates</div>
+        <h2 style="font-size:20px;font-weight:600;margin:4px 0 20px;">Gaming Consoles</h2>
+        <div class="flex flex-col gap-3">
+
+            <!-- PS5 -->
+            <div class="card">
+                <div class="flex gap-2 flex-wrap mb-3">
+                    <span class="chip">PS5</span>
+                    <span class="chip">Disc / Digital</span>
+                    <span style="font-family:'Space Mono',monospace;font-size:10px;padding:3px 8px;background:#001f0e;color:#00e676;border:1px solid #00b35a;letter-spacing:0.06em;">HIGH DEMAND</span>
+                </div>
+                <div style="font-size:17px;font-weight:600;margin-bottom:4px;">PlayStation 5</div>
+                <div style="font-size:13px;color:#8b90a0;margin-bottom:14px;">Premium rates for complete sets. Bonus for sealed units.</div>
+                <div class="flex items-end justify-between flex-wrap gap-3">
+                    <div class="price">$280 – $500</div>
+                    <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20sell%20my%20PS5.%20Here%20are%20the%20details:" class="btn-ghost" style="width:auto;">
+                        Sell My PS5 <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Nintendo Switch -->
+            <div class="card">
+                <div class="flex gap-2 flex-wrap mb-3">
+                    <span class="chip">Switch</span>
+                    <span class="chip">OLED / V2 / Lite</span>
+                </div>
+                <div style="font-size:17px;font-weight:600;margin-bottom:4px;">Nintendo Switch</div>
+                <div style="font-size:13px;color:#8b90a0;margin-bottom:14px;">Fast turnaround. Extra value for complete sets with games.</div>
+                <div class="flex items-end justify-between flex-wrap gap-3">
+                    <div class="price">$80 – $250</div>
+                    <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20sell%20my%20Nintendo%20Switch.%20Here%20are%20the%20details:" class="btn-ghost" style="width:auto;">
+                        Sell My Switch <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- PS4 -->
+            <div class="card">
+                <div class="flex gap-2 flex-wrap mb-3">
+                    <span class="chip">PS4</span>
+                    <span class="chip">Pro / Slim / Fat</span>
+                </div>
+                <div style="font-size:17px;font-weight:600;margin-bottom:4px;">PlayStation 4</div>
+                <div style="font-size:13px;color:#8b90a0;margin-bottom:14px;">Steady demand. Pro and Slim fetch the best rates.</div>
+                <div class="flex items-end justify-between flex-wrap gap-3">
+                    <div class="price">$50 – $110</div>
+                    <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20sell%20my%20PS4.%20Here%20are%20the%20details:" class="btn-ghost" style="width:auto;">
+                        Sell My PS4 <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- iPhones -->
+    <section id="iphone-rates" class="px-5 py-10 border-b" style="border-color:#1f2330;">
+        <div class="section-label">Buyback rates</div>
+        <h2 style="font-size:20px;font-weight:600;margin:4px 0 20px;">iPhones</h2>
+        <div class="flex flex-col gap-3">
+
+            <!-- iPhone 15 Series -->
+            <div class="card" style="border-color:#1a2540;">
+                <div class="flex gap-2 flex-wrap mb-3">
+                    <span class="chip">iPhone 15</span>
+                    <span class="chip">Pro / Pro Max / Plus</span>
+                    <span style="font-family:'Space Mono',monospace;font-size:10px;padding:3px 8px;background:#0d1b3e;color:#3b82f6;border:1px solid #1e40af;letter-spacing:0.06em;">HIGH VALUE</span>
+                </div>
+                <div style="font-size:17px;font-weight:600;margin-bottom:4px;">iPhone 15 Series</div>
+                <div style="font-size:13px;color:#8b90a0;margin-bottom:14px;">Best rates for Pro Max. Must be unlocked or SingTel/StarHub/M1.</div>
+                <div class="flex items-end justify-between flex-wrap gap-3">
+                    <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20sell%20my%20iPhone%2015%20series.%20Here%20are%20the%20details:" class="btn-ghost" style="width:auto;border-color:#1a2540;">
+                        Sell My iPhone 15 <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- iPhone 14 Series -->
+            <div class="card">
+                <div class="flex gap-2 flex-wrap mb-3">
+                    <span class="chip">iPhone 14</span>
+                    <span class="chip">Pro / Pro Max / Plus</span>
+                </div>
+                <div style="font-size:17px;font-weight:600;margin-bottom:4px;">iPhone 14 Series</div>
+                <div style="font-size:13px;color:#8b90a0;margin-bottom:14px;">Strong demand. Battery health above 80% preferred for top rates.</div>
+                <div class="flex items-end justify-between flex-wrap gap-3">
+                    <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20sell%20my%20iPhone%2014%20series.%20Here%20are%20the%20details:" class="btn-ghost" style="width:auto;">
+                        Sell My iPhone 14 <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- iPhone 13 Series -->
+            <div class="card">
+                <div class="flex gap-2 flex-wrap mb-3">
+                    <span class="chip">iPhone 13</span>
+                    <span class="chip">Pro / Pro Max / Mini</span>
+                </div>
+                <div style="font-size:17px;font-weight:600;margin-bottom:4px;">iPhone 13 Series</div>
+                <div style="font-size:13px;color:#8b90a0;margin-bottom:14px;">Steady buyback. Condition and storage size affect pricing.</div>
+                <div class="flex items-end justify-between flex-wrap gap-3">
+                    <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20sell%20my%20iPhone%2013%20series.%20Here%20are%20the%20details:" class="btn-ghost" style="width:auto;">
+                        Sell My iPhone 13 <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Laptops -->
+    <section id="laptop-rates" class="px-5 py-10 border-b" style="border-color:#1f2330;">
+        <div class="section-label">Buyback rates</div>
+        <h2 style="font-size:20px;font-weight:600;margin:4px 0 20px;">Laptops</h2>
+        <div class="flex flex-col gap-3">
+
+            <!-- ThinkPad -->
+            <div class="card">
+                <div class="flex gap-2 flex-wrap mb-3">
+                    <span class="chip">Lenovo</span>
+                    <span class="chip">ThinkPad X1 / T-Series</span>
+                </div>
+                <div style="font-size:17px;font-weight:600;margin-bottom:4px;">Lenovo ThinkPad</div>
+                <div style="font-size:13px;color:#8b90a0;margin-bottom:14px;">Quick valuation based on CPU gen. i5/i7 12th gen and above preferred.</div>
+                <div class="flex items-end justify-between flex-wrap gap-3">
+                    <div class="price">$150 – $600</div>
+                    <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20sell%20my%20ThinkPad.%20Here%20are%20the%20specs:" class="btn-ghost" style="width:auto;">
+                        Sell My ThinkPad <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- MacBook - Coming Soon -->
+            <div class="card" style="opacity:0.55;">
+                <div class="flex gap-2 flex-wrap mb-3">
+                    <span class="chip">Apple</span>
+                    <span class="chip">MacBook Air / Pro</span>
+                    <span class="soon">COMING SOON</span>
+                </div>
+                <div style="font-size:17px;font-weight:600;margin-bottom:4px;">MacBook</div>
+                <div style="font-size:13px;color:#8b90a0;margin-bottom:14px;">M-series buyback coming soon. WhatsApp us in the meantime — we may still accept yours.</div>
+                <div class="flex items-end justify-between flex-wrap gap-3">
+                    <div class="price" style="color:#555a6a;">TBC</div>
+                    <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20sell%20my%20MacBook.%20Here%20are%20the%20details:" class="btn-ghost" style="width:auto;">
+                        Enquire Anyway <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Collection Options -->
+    <section class="px-5 py-10 border-b" style="border-color:#1f2330;">
+        <div class="section-label">Logistics</div>
+        <h2 style="font-size:20px;font-weight:600;margin:4px 0 20px;">Collection Options</h2>
+        <div class="card" style="padding:0 20px;">
+            <div class="coll-row">
+                <div>
+                    <div style="font-size:14px;font-weight:500;">Pasir Ris MRT</div>
+                    <div style="font-size:12px;color:#555a6a;margin-top:2px;">510159 area</div>
+                </div>
+                <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#00e676;background:#001f0e;border:1px solid #00b35a;padding:4px 10px;letter-spacing:0.05em;">FREE</span>
+            </div>
+            <div class="coll-row">
+                <div>
+                    <div style="font-size:14px;font-weight:500;">Central / Town Area</div>
+                    <div style="font-size:12px;color:#555a6a;margin-top:2px;">CBD, Orchard, Bugis, etc.</div>
+                </div>
+                <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#f5a623;background:#1a1000;border:1px solid #92610e;padding:4px 10px;letter-spacing:0.05em;">−$5</span>
+            </div>
+            <div class="coll-row">
+                <div>
+                    <div style="font-size:14px;font-weight:500;">Doorstep Collection</div>
+                    <div style="font-size:12px;color:#555a6a;margin-top:2px;">Any other location</div>
+                </div>
+                <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#ef4444;background:#1a0000;border:1px solid #7f1d1d;padding:4px 10px;letter-spacing:0.05em;">−$10 to −$20</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="px-5 py-10 border-b" style="border-color:#1f2330;">
+        <div class="section-label">Questions</div>
+        <h2 style="font-size:20px;font-weight:600;margin:4px 0 20px;">FAQ</h2>
+
+        <details>
+            <summary>
+                How fast will I get my quote?
+                <span class="material-symbols-outlined icon">add</span>
+            </summary>
+            <p>Most quotes are sent within the hour during the day. For popular devices like PS5s and recent iPhones we often reply within minutes. Just WhatsApp us the model, condition, and photos.</p>
+        </details>
+
+        <details>
+            <summary>
+                Do you accept damaged or faulty devices?
+                <span class="material-symbols-outlined icon">add</span>
+            </summary>
+            <p>Possibly yes, just message us! Rates are adjusted accordingly.</p>
+        </details>
+
+        <details>
+            <summary>
+                How do I get paid?
+                <span class="material-symbols-outlined icon">add</span>
+            </summary>
+            <p>Payment is immediate on meetup — either Cash or PayNow. No waiting, no transfers with delays. You get paid the moment we inspect and agree on the device.</p>
+        </details>
+
+        <details>
+            <summary>
+                Can I back out after getting a quote?
+                <span class="material-symbols-outlined icon">add</span>
+            </summary>
+            <p>Absolutely. Quotes are non-binding. If you change your mind or get a better offer, no hard feelings. We only ask that you let us know so we don't both waste a trip.</p>
+        </details>
+
+        <details>
+            <summary>
+                My device isn't listed — can you still buy it?
+                <span class="material-symbols-outlined icon">add</span>
+            </summary>
+            <p>Possibly! WhatsApp us and we'll let you know. We regularly buy Xbox consoles, older iPhones, and other laptops not listed here. If we can't take it, we might still be able to point you in the right direction.</p>
+        </details>
+
+    </section>
+
+    <!-- Final CTA -->
+    <section class="px-5 py-12">
+        <div style="border:1px solid #1f2330;background:#12151a;padding:28px 20px;text-align:center;">
+            <div class="section-label" style="justify-content:center;display:flex;">Ready?</div>
+            <h2 style="font-family:'Space Mono',monospace;font-size:22px;font-weight:700;margin:8px 0 10px;line-height:1.25;">Get a quote in minutes.</h2>
+            <p style="font-size:14px;color:#8b90a0;margin-bottom:24px;">WhatsApp us now — same day meetups available.</p>
+            <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20get%20a%20fast%20quote%20for%20my%20device." class="btn-primary" style="width:100%;justify-content:center;padding:16px;">
+                <span class="material-symbols-outlined" style="font-size:18px;">chat</span>
+                Chat on WhatsApp
+            </a>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer style="background:#0a0c0f;border-top:1px solid #1f2330;padding:24px 20px 40px;max-width:640px;margin:0 auto;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+        <div>
+            <div style="font-family:'Space Mono',monospace;font-weight:700;font-size:13px;color:#e8eaf0;margin-bottom:4px;">ALCASAR Exchange</div>
+            <div style="font-size:12px;color:#555a6a;">© 2026 · Fast, reliable trading in Singapore</div>
+        </div>
+        <nav style="display:flex;gap:20px;">
+            <a href="#" style="font-size:12px;color:#555a6a;text-decoration:none;">Terms</a>
+            <a href="#" style="font-size:12px;color:#555a6a;text-decoration:none;">Privacy</a>
+            <a href="https://wa.me/6584307719" style="font-size:12px;color:#555a6a;text-decoration:none;">Contact</a>
         </nav>
-    </footer>
+    </div>
+</footer>
+
+<script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+</script>
+
 </body>
 </html>
