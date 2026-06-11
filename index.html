@@ -68,6 +68,13 @@
       }
     }
     </script>
+    <script>
+      // Option A: Hide body to prevent FOUC text glitch while Tailwind CDN loads
+      document.documentElement.style.visibility = 'hidden';
+      window.addEventListener('load', () => {
+          document.documentElement.style.visibility = '';
+      });
+    </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet"/>
@@ -280,6 +287,11 @@
 </head>
 <body>
 
+<!-- Temporary Flyer Banner -->
+<div style="background-color: #00e676; color: #001f0e; text-align: center; padding: 10px 15px; font-weight: 600; font-size: 13px; font-family: 'Space Mono', monospace; letter-spacing: 0.02em;">
+    👋 Did you receive our flyer in the East? Welcome! Tap the WhatsApp button to get your instant quote.
+</div>
+
 <!-- Floating WhatsApp FAB -->
 <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20get%20a%20quote%20for%20my%20device." class="fab" aria-label="Chat on WhatsApp">
     <span class="material-symbols-outlined" style="font-size:26px;">chat</span>
@@ -288,16 +300,41 @@
 <!-- Header -->
 <header id="header" class="bg-bg fixed top-0 left-0 right-0 z-50 h-14 flex items-center px-5 border-b border-border" style="border-color:#1f2330;">
     <div class="page-shell w-full flex justify-between items-center">
-        <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-accent" style="font-size:20px;">devices</span>
-            <span style="font-family:'Space Mono',monospace;font-weight:700;font-size:14px;letter-spacing:0.02em;color:#e8eaf0;">ALCASAR</span>
-            <span style="font-family:'DM Sans',sans-serif;font-size:14px;color:#555a6a;margin-left:2px;">Exchange</span>
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-accent" style="font-size:20px;">devices</span>
+                <span style="font-family:'Space Mono',monospace;font-weight:700;font-size:14px;letter-spacing:0.02em;color:#e8eaf0;">ALCASAR</span>
+                <span style="font-family:'DM Sans',sans-serif;font-size:14px;color:#555a6a;margin-left:2px;" class="hidden sm:inline">Exchange</span>
+            </div>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex gap-5 ml-4">
+                <a href="#" class="text-xs text-text-2 hover:text-accent font-mono font-bold" onclick="window.scrollTo(0,0)">Home</a>
+                <a href="#console-rates" class="text-xs text-text-2 hover:text-accent font-mono font-bold">What We Buy</a>
+                <a href="blog/index.html" class="text-xs text-text-2 hover:text-accent font-mono font-bold">Resale Guides</a>
+                <a href="#faq" class="text-xs text-text-2 hover:text-accent font-mono font-bold">FAQ</a>
+            </nav>
         </div>
-        <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20sell%20my%20device." class="btn-primary" style="padding:8px 14px;font-size:11px;">
-            Sell Now <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
-        </a>
+        <div class="flex items-center gap-3">
+            <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20sell%20my%20device." class="btn-primary" style="padding:8px 14px;font-size:11px;">
+                Sell Now <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+            </a>
+            <!-- Mobile Hamburger -->
+            <button id="mobile-menu-btn" class="md:hidden text-text-2 hover:text-accent flex items-center justify-center bg-transparent border-none p-1 cursor-pointer">
+                <span class="material-symbols-outlined" style="font-size: 24px;">menu</span>
+            </button>
+        </div>
     </div>
 </header>
+
+<!-- Mobile Nav Overlay -->
+<div id="mobile-nav" class="fixed inset-0 bg-bg z-40 hidden flex-col pt-20 px-5 border-b border-border" style="border-color:#1f2330;">
+    <nav class="flex flex-col gap-6 mt-4">
+        <a href="#" class="text-lg text-text hover:text-accent font-mono font-bold" onclick="document.getElementById('mobile-nav').classList.add('hidden'); document.querySelector('#mobile-menu-btn .material-symbols-outlined').textContent='menu';">Home</a>
+        <a href="#console-rates" class="text-lg text-text hover:text-accent font-mono font-bold" onclick="document.getElementById('mobile-nav').classList.add('hidden'); document.querySelector('#mobile-menu-btn .material-symbols-outlined').textContent='menu';">What We Buy</a>
+        <a href="blog/index.html" class="text-lg text-text hover:text-accent font-mono font-bold">Resale Guides</a>
+        <a href="#faq" class="text-lg text-text hover:text-accent font-mono font-bold" onclick="document.getElementById('mobile-nav').classList.add('hidden'); document.querySelector('#mobile-menu-btn .material-symbols-outlined').textContent='menu';">FAQ</a>
+    </nav>
+</div>
 
 <main class="pt-14 pb-28" style="max-width:640px;margin:0 auto;">
 
@@ -308,7 +345,7 @@
             Turn unused tech<br>into <span style="color:#00e676;">instant cash.</span>
         </h1>
         <p style="color:#8b90a0;font-size:15px;line-height:1.6;max-width:360px;margin-bottom:28px;">
-            Consoles, iPhones, laptops — fast quotes and same-day payout via PayNow or cash.
+            Consoles, iPhones, laptops, iPads, Apple Watches, and Cameras — fast quotes and same-day payout via PayNow or cash.
         </p>
         <a href="https://wa.me/6584307719?text=Hi%20Alcasar%20Exchange!%20I%27m%20looking%20to%20get%20a%20fast%20quote%20for%20my%20device." class="btn-primary" style="width:100%;justify-content:center;padding:16px 24px;font-size:14px;">
             <span class="material-symbols-outlined" style="font-size:18px;">chat</span>
@@ -552,8 +589,8 @@
         <div class="card" style="padding:0 20px;">
             <div class="coll-row">
                 <div>
-                    <div style="font-size:14px;font-weight:500;">Pasir Ris/Loyang/East</div>
-                    <div style="font-size:12px;color:#555a6a;margin-top:2px;">Pasir Ris 510159 preferred (other eastern areas possible too)</div>
+                    <div style="font-size:14px;font-weight:500;">All East Coast & Pasir Ris Enclaves</div>
+                    <div style="font-size:12px;color:#555a6a;margin-top:2px;">FREE doorstep pickup for Loyang, Toh Estate, Siglap, Frankel, Opera Estate, Sennett, Eastwood, Tanah Merah, Bayshore, & Pasir Ris.</div>
                 </div>
                 <span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#00e676;background:#001f0e;border:1px solid #00b35a;padding:4px 10px;letter-spacing:0.05em;">FREE</span>
             </div>
@@ -591,9 +628,17 @@
     </section>
 
     <!-- FAQ -->
-    <section class="px-5 py-10 border-b" style="border-color:#1f2330;">
+    <section id="faq" class="px-5 py-10 border-b" style="border-color:#1f2330;">
         <div class="section-label">Questions</div>
         <h2 style="font-size:20px;font-weight:600;margin:4px 0 20px;">FAQ</h2>
+
+        <details open>
+            <summary>
+                Is my data safe when I sell my device?
+                <span class="material-symbols-outlined icon">add</span>
+            </summary>
+            <p><strong style="color:#00e676;">100% Data Security Guarantee:</strong> All devices are completely factory reset and securely wiped in front of you during collection before any money changes hands. Your privacy is our top priority.</p>
+        </details>
 
         <details>
             <summary>
@@ -673,6 +718,17 @@
     window.addEventListener('scroll', () => {
         header.classList.toggle('scrolled', window.scrollY > 10);
     }, { passive: true });
+
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    if(menuBtn && mobileNav) {
+        menuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('hidden');
+            mobileNav.classList.toggle('flex');
+            const icon = menuBtn.querySelector('.material-symbols-outlined');
+            icon.textContent = mobileNav.classList.contains('hidden') ? 'menu' : 'close';
+        });
+    }
 </script>
 
 </body>
